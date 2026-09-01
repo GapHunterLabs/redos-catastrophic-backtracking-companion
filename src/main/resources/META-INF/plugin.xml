@@ -1,0 +1,40 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>dev.gaphunter.redoscatastrophicbacktrackingcompanion</id>
+    <name>ReDoS Catastrophic-Backtracking Companion</name>
+    <vendor>Gap Hunter Labs</vendor>
+    <description><![CDATA[
+        <p>Warning on a <code>Pattern.compile("...")</code>/
+        <code>"...".matches("...")</code> call in Java whose literal regex
+        argument has a structural catastrophic-backtracking pattern: a
+        nested unbounded quantifier (<code>(a+)+</code>), or an
+        unbounded-quantified alternation with overlapping branches
+        (<code>(a|a)*</code>). A single crafted input against either
+        pattern can hang a server thread indefinitely (CWE-400,
+        Uncontrolled Resource Consumption -- Regular Expression Denial
+        of Service).</p>
+        <p>Parses the regex literal with its own hand-rolled grammar --
+        never depends on <code>java.util.regex</code> internally, since
+        the platform exposes no PSI for the interior of a regex string.
+        No plugin on the JetBrains Marketplace was found dedicated to
+        this specific check.</p>
+        <p>Stated honestly: v0.1 covers Java only, only the two
+        structural patterns named above -- not a full backtracking-cost
+        engine -- and only a static string literal argument, never a
+        regex built dynamically at runtime.</p>
+        <p>Free. No license nags, no telemetry, no network calls.</p>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <localInspection language="JAVA"
+            groupName="ReDoS Catastrophic-Backtracking Companion"
+            displayName="Catastrophic-backtracking regex pattern"
+            enabledByDefault="true"
+            level="WARNING"
+            implementationClass="dev.gaphunter.redoscatastrophicbacktrackingcompanion.inspection.CatastrophicBacktrackingInspection"/>
+        <notificationGroup id="ReDoS Catastrophic-Backtracking Companion" displayType="BALLOON"/>
+    </extensions>
+</idea-plugin>
