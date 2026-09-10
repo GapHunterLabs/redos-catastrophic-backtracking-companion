@@ -7,6 +7,10 @@ catastrophic-backtracking pattern: a nested unbounded quantifier
 branches (`(a|a)*`). A single crafted input against either pattern can
 hang a server thread indefinitely.
 
+## Screenshots
+
+![Screenshot 1](docs/screenshots/Screenshot_1.png)
+
 ## Why it exists
 
 CWE-400 (Uncontrolled Resource Consumption) via Regular Expression
