@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [0.1.1]
+
+### Fixed
+
+- Review/star CTA now links to this plugin's own Marketplace
+  reviews page instead of the vendor's generic plugin list.
+
 ## [0.1.0]
 
 ### Added
@@ -16,5 +23,6 @@
 - Hand-rolled regex grammar and parser, independent of
   `java.util.regex`.
 
-[Unreleased]: https://github.com/GapHunterLabs/redos-catastrophic-backtracking-companion/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/GapHunterLabs/redos-catastrophic-backtracking-companion/compare/0.1.1...HEAD
+[0.1.1]: https://github.com/GapHunterLabs/redos-catastrophic-backtracking-companion/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/GapHunterLabs/redos-catastrophic-backtracking-companion/commits/0.1.0
