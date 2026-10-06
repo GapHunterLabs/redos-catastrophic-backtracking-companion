@@ -1,0 +1,11 @@
+<html>
+<body>
+Reports a Java regex literal in <code>Pattern.compile("...")</code> or <code>"...".matches("...")</code> with a
+catastrophic-backtracking structure: a nested unbounded quantifier such as <code>(a+)+</code>, or an unbounded
+quantified alternation with overlapping branches such as <code>(a|a)*</code>.
+<!-- tooltip end -->
+<p>One crafted input can keep the matcher busy for an extremely long time and tie up a server thread (CWE-400,
+regular expression denial of service). Rewrite the pattern so that each part of the input can be matched in only one
+way.</p>
+</body>
+</html>
